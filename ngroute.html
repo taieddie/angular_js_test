@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- ... -->
+    <!-- Extra routing library -->
+    <script src="lib/angular-route-v1.2.22.js"></script>
+</body>
+
+<script>
+	var app = angular.module('app', [
+   'ngRoute'
+]);
+
+   app.config(function ($routeProvider) {
+   $routeProvider
+      .when('/inbox', {
+         templateUrl: 'views/inbox.html',
+         controller: 'InboxCtrl',
+         controllerAs: 'inbox'
+      })
+      .when('/inbox/email/:id', {
+         templateUrl: 'views/email.html',
+         controller: 'EmailCtrl',
+         controllerAs: 'email'
+      })
+      .otherwise({
+         redirectTo: '/inbox'
+      });
+});
+
+</script>
+
+</html>
